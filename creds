@@ -1,0 +1,15 @@
+postgresql-9.2 (PostgreSQL 9.2)
+-------------------------------
+Gears:          Located with python-2.7
+Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT
+Database Name:  kage
+Password:       mbkw4-U3G3fV
+Username:       adminq3e5s1c
+
+PostgreSQL 9.2 database added.  Please make note of these credentials:
+
+Root User: adminq3e5s1c
+Root Password: mbkw4-U3G3fV
+Database Name: kage
+
+Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT
