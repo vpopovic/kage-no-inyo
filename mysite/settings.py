@@ -1,4 +1,5 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.conf import global_settings as DEFAULT_SETTINGS
 import os
 import socket
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'apps.quotes',
+    'compressor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -126,4 +128,26 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'templates'),
+)
+
+# compress settings
+COMPRESS_ENABLED = True
+
+sass_path = os.path.expanduser('~/.gem/bin/sass')
+if not os.path.exists(sass_path):
+    sass_path = 'sass'
+
+if DEBUG:
+    SASS_CMDLINE = '{0} --debug-info {{infile}} {{outfile}}'.format(sass_path)
+else:
+    SASS_CMDLINE = '{0} {{infile}} {{outfile}}'.format(sass_path)
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-sass', SASS_CMDLINE),
+    ('text/x-scss', SASS_CMDLINE),
+)
+
+COMPRESS_ROOT = STATIC_ROOT
+STATICFILES_FINDERS = DEFAULT_SETTINGS.STATICFILES_FINDERS + (
+    'compressor.finders.CompressorFinder',
 )
