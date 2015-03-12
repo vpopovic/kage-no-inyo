@@ -24,10 +24,12 @@
       <h1>Kage <small>quotes. because reasons</small></h1>
     </div>
     {% for q in quotes %}
-    <div class='panel panel-default panel-quote'>
-        <div class='panel-body'>&ldquo;{{ q.text }}&rdquo;</div>
-        <div class='panel-footer'>{{ q.author }}</div>
-    </div>
+    <blockquote class="{% cycle '' 'blockquote-reverse ' %}wall-quote">
+        <p>&ldquo;{{ q.text }}&rdquo;</p>
+        <footer>
+            <cite title="{{ q.author }}">{{ q.author }}</cite>
+        </footer>
+    </blockquote>
     {% endfor %}
     </div>
 </body>
