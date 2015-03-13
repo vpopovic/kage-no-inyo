@@ -27,7 +27,7 @@
     <blockquote class="{% cycle '' 'blockquote-reverse ' %}wall-quote">
         <p>&ldquo;{{ q.text }}&rdquo;</p>
         <footer>
-            <cite title="{{ q.author }}">{{ q.author }}</cite>
+            <cite title="{{ q.author }}">{{ q.author }}</cite> - {{ q.created }}
         </footer>
     </blockquote>
     {% endfor %}

@@ -17,5 +17,7 @@ class Quote(models.Model):
         body = ' '.join(self.text.split(' ')[:5])
         if len(body) < len(self.text):
             body += '...'
-
         return '{0}: "{1}"'.format(self.author, body)
+
+    class Meta:
+        ordering = ('-created',)
