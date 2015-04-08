@@ -130,6 +130,10 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'apps.quotes.context_processors.day_info',
+)
+
 # compress settings
 COMPRESS_ENABLED = True
 

@@ -9,6 +9,7 @@
     {% compress css %}
     <link href='{% static "css/lib/bootstrap.min.css" %}' rel='stylesheet' />
     <link href='{% static "sass/wall.sass" %}' rel='stylesheet' type='text/x-sass' />
+    <link href='{% static "sass/footer.sass" %}' rel='stylesheet' type='text/x-sass' />
     {% block extra_css %}{% endblock %}
     {% endcompress %}
 
@@ -20,17 +21,27 @@
 </head>
 <body>
     <div class='container'>
-    <div class="page-header">
-      <h1>Kage <small>quotes. because reasons</small></h1>
-    </div>
-    {% for q in quotes %}
-    <blockquote class="{% cycle '' 'blockquote-reverse ' %}wall-quote">
-        <p>&ldquo;{{ q.text }}&rdquo;</p>
-        <footer>
-            <cite title="{{ q.author }}">{{ q.author }}</cite> - {{ q.created }}
+        <div class="page-header">
+          <h1>Kage <small>quotes. because reasons</small></h1>
+        </div>
+        {% for q in quotes %}
+        <blockquote class="{% cycle '' 'blockquote-reverse ' %}wall-quote">
+            <p>&ldquo;{{ q.text }}&rdquo;</p>
+            <footer>
+                <cite title="{{ q.author }}">{{ q.author }}</cite> - {{ q.created }}
+            </footer>
+        </blockquote>
+        {% endfor %}
+
+        <footer class='footer'>
+            <div class='container'>
+                <span class='text-{% if result %}warning{% else %}muted{% endif %}'>
+                    {{ date|date:"l" }}, {{ date }} 
+                    {% if result %}({{ result }}){% endif %}
+                </span>
+            </div>
         </footer>
-    </blockquote>
-    {% endfor %}
+
     </div>
 </body>
 </html>
