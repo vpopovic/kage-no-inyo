@@ -36,8 +36,10 @@
         <footer class='footer'>
             <div class='container'>
                 <span class='text-{% if result %}warning{% else %}muted{% endif %}'>
+                    <img width="40px" src="{% static "img/skull.gif" %}" />
                     {{ date|date:"l" }}, {{ date }} 
                     {% if result %}({{ result }}){% endif %}
+                    <img width="40px" src="{% static "img/skull.gif" %}" />
                 </span>
             </div>
         </footer>
