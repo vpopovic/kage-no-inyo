@@ -33,16 +33,20 @@
         </blockquote>
         {% endfor %}
 
-        <footer class='footer'>
-            <div class='container'>
-                <span class='text-{% if result %}warning{% else %}muted{% endif %}'>
-                    <img width="40px" src="{% static "img/skull.gif" %}" />
-                    {{ date|date:"l" }}, {{ date }} 
-                    {% if result %}({{ result }}){% endif %}
-                    <img width="40px" src="{% static "img/skull.gif" %}" />
-                </span>
-            </div>
-        </footer>
+        <div id='footer' class='container'>
+            <nav class="navbar navbar-default navbar-fixed-bottom">
+                <div class="navbar-inner navbar-content-center">
+                    <center>
+                    <span class='text-{% if result %}warning{% else %}muted{% endif %}'>
+                        <img width="40px" src="{% static "img/skull.gif" %}" />
+                        {{ date|date:"l" }}, {{ date }} 
+                        {% if result %}({{ result }}){% endif %}
+                        <img width="40px" src="{% static "img/skull.gif" %}" />
+                    </span>
+                    </center>
+                </div>
+            </nav>
+        </div>
 
     </div>
 </body>
