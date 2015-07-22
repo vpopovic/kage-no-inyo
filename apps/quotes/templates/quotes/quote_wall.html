@@ -16,7 +16,11 @@
     {% compress js %}
     <script src='{% static "js/lib/jquery.min.js" %}'></script>
     <script src='{% static "js/lib/bootstrap.min.js" %}'></script>
-    {% block extra_js %}{% endblock %}
+    {% block extra_js %}
+    {% if 'fries' in result %}
+        <script src='{% static "js/fallingScript.js" %}'></script>
+    {% endif %}
+    {% endblock %}
     {% endcompress %}
 </head>
 <body>
