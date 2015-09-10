@@ -1,4 +1,5 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Flake8: noqa
 from django.conf import global_settings as DEFAULT_SETTINGS
 import os
 import socket
@@ -38,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_pygments',
     'apps.quotes',
     'compressor',
 )
